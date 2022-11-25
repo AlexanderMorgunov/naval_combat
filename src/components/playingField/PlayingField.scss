@@ -1,0 +1,22 @@
+.field {
+    width: 1000px;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    &_player {
+        width: 100vw;   
+        display: grid;
+        grid-template: repeat(6, 55px) /repeat(5, 55px);
+        justify-content: center;
+        align-content: center;
+
+        &_num {
+            grid-column: 1 / 6;
+            text-align: center;
+            font-weight: bold;
+        }
+    }
+}
