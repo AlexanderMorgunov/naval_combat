@@ -4,13 +4,20 @@ import './header.scss'
 
 class Header extends Component {
 
-
       onHandleNewGame = this.props.onHandleNewGame;
       phase = this.props.phase;
 
-      componentDidMount() {}
+    content;
 
-      content = (state) => {
+      componentDidUpdate() {
+            this.content = this.getContent(this.props.phase)
+      }
+
+      componentDidMount() { 
+        this.content = this.getContent(this.props.phase)
+      }
+
+      getContent = (state) => {
         switch(state) {
             case 'preparing':
                 return (
@@ -37,19 +44,15 @@ class Header extends Component {
                     <div className="">Winner is ...</div>
                 )
             default:
-                console.log(state);
-                // throw new Error('invalid state');
+                throw new Error('invalid state');
         }
       }
-
-      
 
       render(){
         return (
             <div className="header">
             <Button variant="warning" onClick={this.onHandleNewGame}>New Game</Button>
-            {/* <Button variant="warning">New Game</Button> */}
-            {this.content(this.phase) ? this.content(this.phase) : null}
+            {this.content}
             </div>
         )
       }
