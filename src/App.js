@@ -21,7 +21,7 @@ class App extends Component {
     return(
       <>
       <Header onHandleNewGame={this.onHandleNewGame} phase={this.state.gamePhase}/>
-      <PlayingField/>
+      <PlayingField phase={this.state.gamePhase}/>
       </>
       
     )
