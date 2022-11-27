@@ -13,15 +13,15 @@ class App extends Component {
   }
 
   onHandleNewGame = () => {
-    this.setState({gamePhase: '1stPlayerMoveShip'});
+    this.setState((state) => ({gamePhase: '1stPlayerMoveShip'}));
   }
 
 
   render() {
     return(
       <>
-      <Header onHandleNewGame={this.onHandleNewGame} phase={this.state.gamePhase}/>
-      <PlayingField phase={this.state.gamePhase}/>
+      <Header onHandleNewGame={this.onHandleNewGame} phase={this.state}/>
+      <PlayingField phase={this.state}/>
       </>
       
     )

@@ -3,45 +3,55 @@ import './PlayingField.scss';
 import Square from '../square/Square';
 
 class PlayingField extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
 
-  phase = this.props.phase;
+        };
+    }
+
+componentDidMount() {
+    this.setState(this.props.phase)
+}
+
+componentDidUpdate(prevProps) {
+    if(this.props !== prevProps) {
+        this.setState(this.props.phase);   
+    }
+}
 
   elements = () => {
     return (
         <>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
-        <Square phase={this.props.phase}/>
+        <Square phase={this.state} id={1}/>
+        <Square phase={this.state} id={2}/>
+        <Square phase={this.state} id={3}/>
+        <Square phase={this.state} id={4}/>
+        <Square phase={this.state} id={5}/>
+        <Square phase={this.state} id={6}/>
+        <Square phase={this.state} id={7}/>
+        <Square phase={this.state} id={8}/>
+        <Square phase={this.state} id={9}/>
+        <Square phase={this.state} id={10}/>
+        <Square phase={this.state} id={11}/>
+        <Square phase={this.state} id={12}/>
+        <Square phase={this.state} id={13}/>
+        <Square phase={this.state} id={14}/>
+        <Square phase={this.state} id={15}/>
+        <Square phase={this.state} id={16}/>
+        <Square phase={this.state} id={17}/>
+        <Square phase={this.state} id={18}/>
+        <Square phase={this.state} id={19}/>
+        <Square phase={this.state} id={20}/>
+        <Square phase={this.state} id={21}/>
+        <Square phase={this.state} id={22}/>
+        <Square phase={this.state} id={23}/>
+        <Square phase={this.state} id={24}/>
+        <Square phase={this.state} id={25}/>
         </>
     )
   };
 
-  content;
-  componentDidUpdate() {
-    this.content = this.getContent(this.props.phase)
-}
 
   getContent = (state) => {
     switch(state) {
@@ -88,7 +98,7 @@ class PlayingField extends Component {
             return(
                 <div className="field">
                     <div className="field_player">
-                    <div className="field_player_num">First player</div>
+                    <div className="field_player_num">Second player</div>
                     {this.elements()}
                     </div>
                     {/* <div className="field_player">
@@ -118,31 +128,12 @@ class PlayingField extends Component {
   render() {
     return (
         <>
-        {this.content}
+            {this.state.gamePhase ? this.getContent(this.state.gamePhase) : null}
         </>
     )
 }
 }
 
 export default PlayingField;
-
-//     render() {
-//         return (
-//             <>
-//                 <div className="field">
-//                     <div className="field_player">
-//                     <div className="field_player_num">First player</div>
-//                     {this.getContent(this.phase)}
-//                     </div>
-//                     <div className="field_player">
-//                     <div className="field_player_num">Second player</div>
-//                     {this.elements()}
-//                     </div>
-//                 </div>
-//             </>
-//         )
-//     }
-// }
-
 
 
